@@ -1,5 +1,10 @@
-require("dotenv")
+require("dotenv").config()
 var inquirer = require ("inquirer")
+var keys = require ("./keys")
+var Spotify = require("node-spotify-api")
+var spotify = new Spotify(keys.spotify)
+
+
 
 inquirer.prompt([{
     type: "list",
@@ -17,6 +22,7 @@ inquirer.prompt([{
     ? console.log(inquireresponse.options)
     : inquireresponse.options === "searchOMDB"
     ? console.log(inquireresponse.options)
+    : console.log('unrecognized command')
 })
 
 
